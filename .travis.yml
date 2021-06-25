@@ -16,4 +16,4 @@ jobs:
   include:
   - stage: test
     script:
-    - echo "TEST!!!"
+    - echo "TEST!!!!"

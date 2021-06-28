@@ -9,11 +9,11 @@ stages:
 before_install:
 install:
 - pip install -r requirements.txt
-- python train.py
-- echo "## Model Metrics" >> report.md
-- cat metrics.txt >> report.md
+- npm i -g @dvcorg/cml
 jobs:
   include:
   - stage: test
     script:
-    - echo "TEST!!!"
+    - python train.py
+    - echo "## Model Metrics" >> report.md
+    - cat metrics.txt >> report.md

@@ -10,8 +10,8 @@ before_install:
 install:
 - pip install -r requirements.txt
 - curl -sL https://deb.nodesource.com/setup_12.x | bash
-- apt-get update
-- apt-get install -y nodejs
+- sudo apt-get update
+- sudo apt-get install -y nodejs
 - npm i -g @dvcorg/cml
 - sudo apt-get install -y libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev libfontconfig-dev
 - npm install -g vega-cli vega-lite

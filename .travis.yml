@@ -23,6 +23,7 @@ jobs:
   - stage: test
     script:
     - python train.py
+    - docker ps -a
     - echo "## Model Metrics" >> report.md
     - cat metrics.txt >> report.md
     - echo "## Data Viz" >> report.md

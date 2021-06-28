@@ -18,7 +18,7 @@ jobs:
   include:
   - stage: test
     script:
-#    - python train.py
+    - python train.py
     - echo "## Model Metrics TEST" >> report.md
-#    - cat metrics.txt >> report.md
+    - cat metrics.txt >> report.md
     - cml-send-comment report.md

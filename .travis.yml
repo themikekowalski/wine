@@ -6,7 +6,10 @@ stages:
 - name: test
 services:
 - docker
+
 before_install:
+  - docker pull dvcorg/cml:0-dvc2-base1-gpu
+
 install:
 - pip install -r requirements.txt
 #- sudo apt-get update
@@ -16,7 +19,7 @@ install:
 #- npm install -g vega-cli vega-lite
 
 before_script:
-- docker pull dvcorg/cml:0-dvc2-base1-gpu
+#- docker pull dvcorg/cml:0-dvc2-base1-gpu
 
 jobs:
   include:

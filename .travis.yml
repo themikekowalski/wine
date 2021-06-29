@@ -25,13 +25,14 @@ jobs:
   include:
   - stage: test
     script:
-    - docker run dvcorg/cml:0-dvc2-base1-gpu /bin/sh -c "python train.py"
-    - docker ps -a
-    - docker run dvcorg/cml:0-dvc2-base1-gpu /bin/sh -c "echo "## Model Metrics" >> report.md"
-    - docker run dvcorg/cml:0-dvc2-base1-gpu /bin/sh -c "cat metrics.txt >> report.md"
-    - docker run dvcorg/cml:0-dvc2-base1-gpu /bin/sh -c "echo "## Data Viz" >> report.md"
-    - docker run dvcorg/cml:0-dvc2-base1-gpu /bin/sh -c "cml-publish feature_importance.png --md >> report.md"
-    - docker run dvcorg/cml:0-dvc2-base1-gpu /bin/sh -c "cml-send-comment report.md"
+    - docker run dvcorg/cml:0-dvc2-base1-gpu /bin/sh -c "pwd"
+#    - docker run dvcorg/cml:0-dvc2-base1-gpu /bin/sh -c "python train.py"
+#    - docker ps -a
+#    - docker run dvcorg/cml:0-dvc2-base1-gpu /bin/sh -c "echo "## Model Metrics" >> report.md"
+#    - docker run dvcorg/cml:0-dvc2-base1-gpu /bin/sh -c "cat metrics.txt >> report.md"
+#    - docker run dvcorg/cml:0-dvc2-base1-gpu /bin/sh -c "echo "## Data Viz" >> report.md"
+#    - docker run dvcorg/cml:0-dvc2-base1-gpu /bin/sh -c "cml-publish feature_importance.png --md >> report.md"
+#    - docker run dvcorg/cml:0-dvc2-base1-gpu /bin/sh -c "cml-send-comment report.md"
 #    - python train.py
 #    - echo "## Model Metrics" >> report.md
 #    - cat metrics.txt >> report.md

@@ -27,6 +27,8 @@ jobs:
   include:
   - stage: test
     script:
+#    - docker run -v ${TRAVIS_BUILD_DIR}:/root/src/ ${IMAGE} /root/src/some_script.sh
+    - docker run -v ${TRAVIS_BUILD_DIR}:/home/runner dvcorg/cml-py3:latest python train.py
     - python train.py
     - echo "## Model Metrics" >> report.md
     - cat metrics.txt >> report.md

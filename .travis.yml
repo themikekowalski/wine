@@ -4,12 +4,12 @@ python:
 - '3.7'
 stages:
 - name: test
-services:
-- docker
+#services:
+#- docker
 
 before_install:
 #  - docker pull dvcorg/cml:0-dvc2-base1-gpu
-  - docker pull dvcorg/cml-py3:latest
+#  - docker pull dvcorg/cml-py3:latest
 
 
 install:
@@ -29,12 +29,12 @@ jobs:
     script:
 #    - docker run -v ${TRAVIS_BUILD_DIR}:/root/src/ ${IMAGE} /root/src/some_script.sh
 #    - docker run -v ${TRAVIS_BUILD_DIR}:/home/runner dvcorg/cml-py3:latest python train.py
-    - docker run -v ${TRAVIS_BUILD_DIR}:/home/runner dvcorg/cml-py3:latest -w "/home/runner" ./do_stuff.sh
+#    - docker run -v ${TRAVIS_BUILD_DIR}:/home/runner dvcorg/cml-py3:latest -w "/home/runner" ./do_stuff.sh
 
-#    - python train.py
-#    - echo "## Model Metrics" >> report.md
-#    - cat metrics.txt >> report.md
-#    - echo "## Data Viz" >> report.md
-#    - cml-publish feature_importance.png --md >> report.md
-#    - cml-publish residuals.png --md >> report.md
-#    - cml-send-comment report.md
+    - python train.py
+    - echo "## Model Metrics" >> report.md
+    - cat metrics.txt >> report.md
+    - echo "## Data Viz" >> report.md
+    - cml-publish feature_importance.png --md >> report.md
+    - cml-publish residuals.png --md >> report.md
+    - cml-send-comment report.md

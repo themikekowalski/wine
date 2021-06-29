@@ -11,6 +11,7 @@ before_install:
 #  - docker pull dvcorg/cml:0-dvc2-base1-gpu
   - docker pull dvcorg/cml-py3:latest
 
+
 install:
 - pip install -r requirements.txt
 #- sudo apt-get update
@@ -26,18 +27,10 @@ jobs:
   include:
   - stage: test
     script:
-    - docker run dvcorg/cml-py3:latest /bin/sh -c "pwd"
-#    - docker run dvcorg/cml:0-dvc2-base1-gpu /bin/sh -c "python train.py"
-#    - docker ps -a
-#    - docker run dvcorg/cml:0-dvc2-base1-gpu /bin/sh -c "echo "## Model Metrics" >> report.md"
-#    - docker run dvcorg/cml:0-dvc2-base1-gpu /bin/sh -c "cat metrics.txt >> report.md"
-#    - docker run dvcorg/cml:0-dvc2-base1-gpu /bin/sh -c "echo "## Data Viz" >> report.md"
-#    - docker run dvcorg/cml:0-dvc2-base1-gpu /bin/sh -c "cml-publish feature_importance.png --md >> report.md"
-#    - docker run dvcorg/cml:0-dvc2-base1-gpu /bin/sh -c "cml-send-comment report.md"
-#    - python train.py
-#    - echo "## Model Metrics" >> report.md
-#    - cat metrics.txt >> report.md
-#    - echo "## Data Viz" >> report.md
-#    - cml-publish feature_importance.png --md >> report.md
-#    - cml-publish residuals.png --md >> report.md
-#    - cml-send-comment report.md
+    - python train.py
+    - echo "## Model Metrics" >> report.md
+    - cat metrics.txt >> report.md
+    - echo "## Data Viz" >> report.md
+    - cml-publish feature_importance.png --md >> report.md
+    - cml-publish residuals.png --md >> report.md
+    - cml-send-comment report.md

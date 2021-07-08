@@ -13,7 +13,7 @@ before_install:
 
 
 install:
-- pip install -r requirements.txt
+#- pip install -r requirements.txt
 #- sudo apt-get update
 #- nvm install --lts
 #- npm i -g @dvcorg/cml
@@ -29,7 +29,8 @@ jobs:
     script:
 #    - docker run -v ${TRAVIS_BUILD_DIR}:/root/src/ ${IMAGE} /root/src/some_script.sh
 #    - docker run -v ${TRAVIS_BUILD_DIR}:/home/runner dvcorg/cml-py3:latest python train.py
-    - docker run -v ${TRAVIS_BUILD_DIR}:/home/runner dvcorg/cml-py3:latest ./do_stuff.sh
+#    - docker run -v ${TRAVIS_BUILD_DIR}:/home/runner dvcorg/cml-py3:latest ./do_stuff.sh
+    - docker run --mount source=${TRAVIS_BUILD_DIR,target=/home/runner dvcorg/cml-py3:latest ./do_stuff.sh
 
 #    - python train.py
 #    - echo "## Model Metrics" >> report.md

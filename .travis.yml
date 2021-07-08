@@ -30,7 +30,7 @@ jobs:
 #    - docker run -v ${TRAVIS_BUILD_DIR}:/root/src/ ${IMAGE} /root/src/some_script.sh
 #    - docker run -v ${TRAVIS_BUILD_DIR}:/home/runner dvcorg/cml-py3:latest python train.py
 #    - docker run -v ${TRAVIS_BUILD_DIR}:/home/runner dvcorg/cml-py3:latest ./do_stuff.sh
-    - docker run --mount source=${TRAVIS_BUILD_DIR,target=/home/runner dvcorg/cml-py3:latest ./do_stuff.sh
+    - docker run --mount source=${TRAVIS_BUILD_DIR},target=/home/runner dvcorg/cml-py3:latest ./do_stuff.sh
 
 #    - python train.py
 #    - echo "## Model Metrics" >> report.md

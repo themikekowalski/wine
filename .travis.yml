@@ -27,7 +27,8 @@ jobs:
   include:
   - stage: test
     script:
-    - docker run --mount type=bind,source=${TRAVIS_BUILD_DIR},target=/home/runner dvcorg/cml-py3:latest /bin/sh -c "./do_stuff.sh"
+    - env | grep repo_token
+    - docker run --env repo_token --mount type=bind,source=${TRAVIS_BUILD_DIR},target=/home/runner dvcorg/cml-py3:latest /bin/sh -c "./do_stuff.sh"
 
 #    - python train.py
 #    - echo "## Model Metrics" >> report.md

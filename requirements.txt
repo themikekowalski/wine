@@ -2,4 +2,5 @@ pandas
 sklearn
 matplotlib
 seaborn
-numpy
+numpy==1.16.5
+pytk

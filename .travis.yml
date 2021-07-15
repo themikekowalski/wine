@@ -4,16 +4,36 @@ python:
 - '3.7'
 stages:
 - name: test
-#services:
-#- docker
+services:
+- docker
+
 before_install:
+#  - docker pull dvcorg/cml:0-dvc2-base1-gpu
+  - docker pull dvcorg/cml-py3:latest
+
+
 install:
-- pip install -r requirements.txt
-- python train.py
-- echo "## Model Metrics" >> report.md
-- cat metrics.txt >> report.md
+#- pip install -r requirements.txt
+#- sudo apt-get update
+#- nvm install --lts
+#- npm i -g @dvcorg/cml
+#- sudo apt-get install -y libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev libfontconfig-dev
+#- npm install -g vega-cli vega-lite
+
+before_script:
+#- docker pull dvcorg/cml:0-dvc2-base1-gpu
+
 jobs:
   include:
   - stage: test
     script:
-    - echo "TEST!!!"
+    - env | grep repo_token
+    - docker run --env repo_token --mount type=bind,source=${TRAVIS_BUILD_DIR},target=/home/runner dvcorg/cml-py3:latest /bin/sh -c "./do_stuff.sh"
+
+#    - python train.py
+#    - echo "## Model Metrics" >> report.md
+#    - cat metrics.txt >> report.md
+#    - echo "## Data Viz" >> report.md
+#    - cml-publish feature_importance.png --md >> report.md
+#    - cml-publish residuals.png --md >> report.md
+#    - cml-send-comment report.md
